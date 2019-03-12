@@ -7305,3 +7305,625 @@ content-length: 0
 endTime: 1552431272.3862898
 latency: 0.004987001419067383
 
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 1b9d2b6e-917d-4ef1-b0df-0051eab62937\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552431924.1417081
+response: HTTP/1.1 200 OK
+Postman-Token: 1b9d2b6e-917d-4ef1-b0df-0051eab62937
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 45
+
+[{"id_curs": 5, "nume": "SSD", "credite": 4}]
+endTime: 1552431924.1557004
+latency: 0.0139923095703125
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 49c71519-719c-49d3-8bca-e69392043f03\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432035.279816
+response: HTTP/1.1 200 OK
+Postman-Token: 49c71519-719c-49d3-8bca-e69392043f03
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 45
+
+[{"id_curs": 5, "nume": "SSD", "credite": 4}]
+endTime: 1552432035.2838056
+latency: 0.003989696502685547
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 3e8ff434-8419-44b1-9daa-2eab3a318466\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432073.6055696
+response: HTTP/1.1 200 OK
+Postman-Token: 3e8ff434-8419-44b1-9daa-2eab3a318466
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 45
+
+[{"id_curs": 5, "nume": "SSD", "credite": 4}]
+endTime: 1552432073.610556
+latency: 0.004986286163330078
+
+request: b'POST /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: f04c34d9-2d4e-45da-bfb3-68f01d32f28e\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 32\r\nConnection: keep-alive\r\n\r\nnume=SSasasa&credite=4&id_curs=5'
+startTime: 1552432083.9205976
+response: HTTP/1.1 201 Created
+Content-Type: application/json
+Postman-Token: f04c34d9-2d4e-45da-bfb3-68f01d32f28e
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+Location: /cursuri/33
+
+
+endTime: 1552432083.950551
+latency: 0.029953479766845703
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: c912cdc1-5ca9-45af-bca0-6cccf0578eaa\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432095.6503825
+response: HTTP/1.1 200 OK
+Postman-Token: c912cdc1-5ca9-45af-bca0-6cccf0578eaa
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 45
+
+[{"id_curs": 5, "nume": "SSD", "credite": 4}]
+endTime: 1552432095.6713362
+latency: 0.020953655242919922
+
+request: b'POST /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: a994cc72-598d-43d5-9054-36d605a3e82d\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 32\r\nConnection: keep-alive\r\n\r\nnume=SSasasa&credite=4&id_curs=5'
+startTime: 1552432274.7783964
+response: HTTP/1.1 409 Conflict
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: a994cc72-598d-43d5-9054-36d605a3e82d
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 40
+Connection: keep-alive
+
+"UNIQUE constraint failed: Cursuri.nume"
+endTime: 1552432274.7833824
+latency: 0.0049860477447509766
+
+request: b'POST /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: b3a18367-a3c5-462f-88f0-75d3478af952\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 33\r\nConnection: keep-alive\r\n\r\nnume=SSasasaD&credite=4&id_curs=5'
+startTime: 1552432295.424515
+response: HTTP/1.1 201 Created
+Content-Type: application/json
+Postman-Token: b3a18367-a3c5-462f-88f0-75d3478af952
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+Location: /cursuri/34
+
+
+endTime: 1552432295.4431543
+latency: 0.018639326095581055
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 719573a6-2721-470b-9cfe-0cc0e8667f3c\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432364.09432
+response: HTTP/1.1 200 OK
+Postman-Token: 719573a6-2721-470b-9cfe-0cc0e8667f3c
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 45
+
+[{"id_curs": 5, "nume": "SSD", "credite": 4}]
+endTime: 1552432364.0993028
+latency: 0.004982709884643555
+
+request: b'PATCH /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: a474592f-553c-4788-8717-827dc7d7c85f\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 9\r\nConnection: keep-alive\r\n\r\nnume=DADA'
+startTime: 1552432376.367151
+response: HTTP/1.1 404 Not Found
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: a474592f-553c-4788-8717-827dc7d7c85f
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552432376.3721592
+latency: 0.005008220672607422
+
+request: b'PATCH /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 7bb07100-a81c-4206-87fb-706a2aa5dfe7\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 9\r\nConnection: keep-alive\r\n\r\nnume=DADA'
+startTime: 1552432407.4247408
+response: HTTP/1.1 404 Not Found
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: 7bb07100-a81c-4206-87fb-706a2aa5dfe7
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552432407.431403
+latency: 0.006662130355834961
+
+request: b'POST /cursuri/1 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: ae480712-85a6-4aef-9728-4b6278d1c318\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 18\r\nConnection: keep-alive\r\n\r\nnume=SSD&credite=4'
+startTime: 1552432421.4331641
+response: HTTP/1.1 409 Conflict
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: ae480712-85a6-4aef-9728-4b6278d1c318
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 40
+Connection: keep-alive
+
+"UNIQUE constraint failed: Cursuri.nume"
+endTime: 1552432421.4461637
+latency: 0.012999534606933594
+
+request: b'POST /cursuri/1 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 71116d1e-5a3e-40d9-a5bc-195ad8523892\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 19\r\nConnection: keep-alive\r\n\r\nnume=SSDD&credite=4'
+startTime: 1552432426.0422206
+response: HTTP/1.1 201 Created
+Content-Type: application/json
+Postman-Token: 71116d1e-5a3e-40d9-a5bc-195ad8523892
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+Location: /cursuri/35
+
+
+endTime: 1552432426.0611677
+latency: 0.018947124481201172
+
+request: b'PUT /cursuri/1 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: d85f7669-fd56-465e-bc83-0da7abe2bf8a\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 19\r\nConnection: keep-alive\r\n\r\nnume=SSDD&credite=4'
+startTime: 1552432445.4734313
+response: HTTP/1.1 406 Not Acceptable
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: d85f7669-fd56-465e-bc83-0da7abe2bf8a
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 38
+Connection: keep-alive
+
+not all parameters given for valid PUT
+endTime: 1552432445.4790733
+latency: 0.005641937255859375
+
+request: b'PUT /cursuri/1 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 90c91b59-251a-41da-bb58-b2d09cc6d77b\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 29\r\nConnection: keep-alive\r\n\r\nid_curs=1&nume=SSDD&credite=4'
+startTime: 1552432452.2062657
+response: HTTP/1.1 404 Not Found
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: 90c91b59-251a-41da-bb58-b2d09cc6d77b
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552432452.2109394
+latency: 0.00467371940612793
+
+request: b'PUT /cursuri/2 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 65fac7f4-8050-4bb7-a8da-8e752aebf523\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 29\r\nConnection: keep-alive\r\n\r\nid_curs=2&nume=SSDD&credite=4'
+startTime: 1552432457.4899065
+request: b'PUT /cursuri/2 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: db2cadf8-8800-4d76-8947-1ca66d81b869\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 29\r\nConnection: keep-alive\r\n\r\nid_curs=2&nume=SSDD&credite=4'
+startTime: 1552432481.8020241
+response: HTTP/1.1 406 Not Acceptable
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: db2cadf8-8800-4d76-8947-1ca66d81b869
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 38
+Connection: keep-alive
+
+UNIQUE constraint failed: Cursuri.nume
+endTime: 1552432481.8109994
+latency: 0.00897526741027832
+
+request: b'PUT /cursuri/2 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 96ebc89d-a72b-4316-b61c-187eaa0befc2\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 30\r\nConnection: keep-alive\r\n\r\nid_curs=2&nume=SdSDD&credite=4'
+startTime: 1552432485.913908
+response: HTTP/1.1 204 No Content
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: 96ebc89d-a72b-4316-b61c-187eaa0befc2
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552432485.9337938
+latency: 0.019885778427124023
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: f06f8d50-ea19-46ea-91d4-643885bdd4be\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432493.8471437
+response: HTTP/1.1 200 OK
+Postman-Token: f06f8d50-ea19-46ea-91d4-643885bdd4be
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 45
+
+[{"id_curs": 5, "nume": "SSD", "credite": 4}]
+endTime: 1552432493.854126
+latency: 0.006982326507568359
+
+request: b'PUT /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 20c280a0-26cf-4750-b71f-b7e55ddb5e36\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 31\r\nConnection: keep-alive\r\n\r\nid_curs=5&nume=SdSDDs&credite=4'
+startTime: 1552432505.598578
+response: HTTP/1.1 204 No Content
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: 20c280a0-26cf-4750-b71f-b7e55ddb5e36
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552432505.621517
+latency: 0.022938966751098633
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: a7d74765-b2bf-4f13-84ad-591985aded9c\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432512.6429553
+response: HTTP/1.1 200 OK
+Postman-Token: a7d74765-b2bf-4f13-84ad-591985aded9c
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 45
+
+[{"id_curs": 5, "nume": "SSD", "credite": 4}]
+endTime: 1552432512.6489792
+latency: 0.006023883819580078
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 7bb62eb9-e26c-469f-9ced-26bb1a12145d\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432516.0964065
+response: HTTP/1.1 200 OK
+Postman-Token: 7bb62eb9-e26c-469f-9ced-26bb1a12145d
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 45
+
+[{"id_curs": 5, "nume": "SSD", "credite": 4}]
+endTime: 1552432516.1014023
+latency: 0.004995822906494141
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 8c21c566-dce4-4083-a621-6d1d1fdd3bed\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432770.7345138
+response: HTTP/1.1 200 OK
+Postman-Token: 8c21c566-dce4-4083-a621-6d1d1fdd3bed
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 48
+
+[{"id_curs": 5, "nume": "SdSDDs", "credite": 4}]
+endTime: 1552432770.768383
+latency: 0.033869266510009766
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 1fda427a-9010-4a82-8a9b-4d956f101c96\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432777.1751437
+response: HTTP/1.1 200 OK
+Postman-Token: 1fda427a-9010-4a82-8a9b-4d956f101c96
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 48
+
+[{"id_curs": 5, "nume": "SdSDDs", "credite": 4}]
+endTime: 1552432777.1801193
+latency: 0.004975557327270508
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 8bf7339f-47fc-42a0-850d-46ed1c560fe6\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552432778.972455
+response: HTTP/1.1 200 OK
+Postman-Token: 8bf7339f-47fc-42a0-850d-46ed1c560fe6
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 48
+
+[{"id_curs": 5, "nume": "SdSDDs", "credite": 4}]
+endTime: 1552432778.9774404
+latency: 0.004985332489013672
+
+request: b'PATCH /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 4c10ba43-73a4-4166-ae58-fbef7ff83352\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 9\r\nConnection: keep-alive\r\n\r\nnume=DADA'
+startTime: 1552432787.6087387
+response: HTTP/1.1 404 Not Found
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: 4c10ba43-73a4-4166-ae58-fbef7ff83352
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552432787.6167173
+latency: 0.007978677749633789
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: acac164c-e731-4186-bc4f-f8a5a44cda42\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433003.8613212
+response: HTTP/1.1 200 OK
+Postman-Token: acac164c-e731-4186-bc4f-f8a5a44cda42
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 48
+
+[{"id_curs": 5, "nume": "SdSDDs", "credite": 4}]
+endTime: 1552433003.8693001
+latency: 0.00797891616821289
+
+request: b'PATCH /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 8e77a8cb-35c0-49be-b329-d4ea1f0eb9f9\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 9\r\nConnection: keep-alive\r\n\r\nnume=DADA'
+startTime: 1552433007.5259163
+response: HTTP/1.1 406 Not Acceptable
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: 8e77a8cb-35c0-49be-b329-d4ea1f0eb9f9
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552433007.5408745
+latency: 0.01495814323425293
+
+request: b'PATCH /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 087aa49a-44d2-4ee8-9651-c45b92ab276e\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 13\r\nConnection: keep-alive\r\n\r\nnume=DADADADA'
+startTime: 1552433018.7031085
+response: HTTP/1.1 204 No Content
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: 087aa49a-44d2-4ee8-9651-c45b92ab276e
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552433018.7220595
+latency: 0.018950939178466797
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: eef59212-2310-485c-ad43-4fa8cc43b4ac\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433026.3783638
+response: HTTP/1.1 200 OK
+Postman-Token: eef59212-2310-485c-ad43-4fa8cc43b4ac
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 48
+
+[{"id_curs": 5, "nume": "SdSDDs", "credite": 4}]
+endTime: 1552433026.393283
+latency: 0.014919042587280273
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: e40f03ae-e44e-4127-ba93-b35b21e716c7\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433134.4021592
+response: HTTP/1.1 200 OK
+Postman-Token: e40f03ae-e44e-4127-ba93-b35b21e716c7
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 48
+
+[{"id_curs": 5, "nume": "SdSDDs", "credite": 4}]
+endTime: 1552433134.408169
+latency: 0.006009817123413086
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: d288eae5-b61b-4817-a26c-1aed48443e4e\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433139.3561559
+response: HTTP/1.1 200 OK
+Postman-Token: d288eae5-b61b-4817-a26c-1aed48443e4e
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 50
+
+[{"id_curs": 5, "nume": "DADADADA", "credite": 4}]
+endTime: 1552433139.3741028
+latency: 0.017946958541870117
+
+request: b'PATCH /cursuri/5 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: d877471e-fd74-42cf-bed7-9d2995659702\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 10\r\nConnection: keep-alive\r\n\r\nnume=saADA'
+startTime: 1552433145.599977
+response: HTTP/1.1 204 No Content
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: d877471e-fd74-42cf-bed7-9d2995659702
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552433145.619925
+latency: 0.01994800567626953
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 97f8aa6d-e729-45c9-9798-3ab4096a3fd7\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433152.427972
+response: HTTP/1.1 200 OK
+Postman-Token: 97f8aa6d-e729-45c9-9798-3ab4096a3fd7
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 47
+
+[{"id_curs": 5, "nume": "saADA", "credite": 4}]
+endTime: 1552433152.4330077
+latency: 0.0050356388092041016
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: b7a35fa4-aa94-488e-8532-2cf7ef3ea697\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433156.7207744
+response: HTTP/1.1 200 OK
+Postman-Token: b7a35fa4-aa94-488e-8532-2cf7ef3ea697
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 47
+
+[{"id_curs": 5, "nume": "saADA", "credite": 4}]
+endTime: 1552433156.7377234
+latency: 0.016948938369750977
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 4e2b0ca6-c723-4682-bbdc-925229ef6e2d\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433158.0668473
+response: HTTP/1.1 200 OK
+Postman-Token: 4e2b0ca6-c723-4682-bbdc-925229ef6e2d
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 47
+
+[{"id_curs": 5, "nume": "saADA", "credite": 4}]
+endTime: 1552433158.0718317
+latency: 0.004984378814697266
+
+request: b'GET /cursuri/6 HTTP/1.1\r\nPostman-Token: 1be74c43-d24a-4ef1-9a12-0721322a5282\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433165.4650471
+response: HTTP/1.1 404 Not Found
+Postman-Token: 1be74c43-d24a-4ef1-9a12-0721322a5282
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 0
+
+
+endTime: 1552433165.4800024
+latency: 0.014955282211303711
+
+request: b'GET /cursuri/7 HTTP/1.1\r\nPostman-Token: 3dc0f712-ec95-4833-a89b-1b92dc37487c\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433171.274372
+response: HTTP/1.1 404 Not Found
+Postman-Token: 3dc0f712-ec95-4833-a89b-1b92dc37487c
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 0
+
+
+endTime: 1552433171.2794018
+latency: 0.0050296783447265625
+
+request: b'GET /cursuri/19 HTTP/1.1\r\nPostman-Token: cad24fab-6eae-443f-9084-8861d1a5dfaa\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433185.0382633
+response: HTTP/1.1 200 OK
+Postman-Token: cad24fab-6eae-443f-9084-8861d1a5dfaa
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 57
+
+[{"id_curs": 19, "nume": "dsdaaasasaddad", "credite": 8}]
+endTime: 1552433185.043241
+latency: 0.004977703094482422
+
+request: b'PATCH /cursuri/19 HTTP/1.1\r\nContent-Type: application/x-www-form-urlencoded\r\nPostman-Token: 06fdc286-8d4b-42c2-a79a-d6189b51c42f\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\ncontent-length: 11\r\nConnection: keep-alive\r\n\r\nnume=DsaADA'
+startTime: 1552433197.361152
+response: HTTP/1.1 204 No Content
+Content-Type: application/x-www-form-urlencoded
+Postman-Token: 06fdc286-8d4b-42c2-a79a-d6189b51c42f
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+content-length: 0
+Connection: keep-alive
+
+
+endTime: 1552433197.3801014
+latency: 0.018949508666992188
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: 454aa531-285b-4cd7-8b2a-46b7877017a3\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433212.8995798
+response: HTTP/1.1 200 OK
+Postman-Token: 454aa531-285b-4cd7-8b2a-46b7877017a3
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 47
+
+[{"id_curs": 5, "nume": "saADA", "credite": 4}]
+endTime: 1552433212.904566
+latency: 0.004986286163330078
+
+request: b'GET /cursuri/5 HTTP/1.1\r\nPostman-Token: a353cb3d-6665-4191-85b4-1b7cf5b3a494\r\nUser-Agent: PostmanRuntime/7.6.1\r\nAccept: */*\r\nHost: localhost:8888\r\naccept-encoding: gzip, deflate\r\nConnection: keep-alive\r\n\r\n'
+startTime: 1552433216.6847458
+response: HTTP/1.1 200 OK
+Postman-Token: a353cb3d-6665-4191-85b4-1b7cf5b3a494
+User-Agent: PostmanRuntime/7.6.1
+Accept: */*
+Host: localhost:8888
+accept-encoding: gzip, deflate
+Connection: keep-alive
+content-length: 47
+
+[{"id_curs": 5, "nume": "saADA", "credite": 4}]
+endTime: 1552433216.6957476
+latency: 0.011001825332641602
+

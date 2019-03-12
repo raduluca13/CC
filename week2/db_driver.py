@@ -1,12 +1,13 @@
 import sqlite3
 from functools import lru_cache
-
+# from cachetools import cached, hashkey
 
 def init():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
     return conn, c
 
+# @cached(cache={}, key=lambda db_handle, query: hashkey(query))
 @lru_cache(maxsize=32)
 def get_cursuri(id_curs=""):
     conn, c = init()
@@ -66,6 +67,7 @@ def insert_into_cursuri(values=""):
         conn.commit()
         c.close()
         conn.close()
+        get_cursuri.cache_clear()
         return inserted_id
     except sqlite3.IntegrityError as e:
         conn.rollback()  # ?
@@ -101,9 +103,10 @@ def put_cursuri(id_curs, modifications):
             c.close()
             conn.close()
             done = c.rowcount
+            get_cursuri.cache_clear()
             return done
         except sqlite3.Error as e:
-            c.rollback()
+            conn.rollback()
             c.close()
             conn.close()
             return str(e)
@@ -114,6 +117,14 @@ def put_cursuri(id_curs, modifications):
 
 
 def patch_cursuri(id_curs, modifications):
+    '''
+    :param id_curs:
+    :param modifications:
+    :return:
+    done: int   = 1 (all good)
+                = 0 (not found)
+    error: str      message
+    '''
     conn, c = init()
     done = 0
     if "nume" in modifications.keys() and "credite" in modifications.keys():
@@ -124,11 +135,14 @@ def patch_cursuri(id_curs, modifications):
             c.close()
             conn.close()
             done = c.rowcount
+            get_cursuri.cache_clear()
+            return done
         except sqlite3.Error as e:
             c.rollback()
             c.close()
             conn.close()
             print(e)
+            return str(e)
     elif "credite" in modifications.keys():
         try:
             c.execute('''UPDATE Cursuri SET credite=? WHERE id_curs = ?''', (int(modifications['credite']), id_curs))
@@ -136,11 +150,14 @@ def patch_cursuri(id_curs, modifications):
             conn.commit()
             c.close()
             conn.close()
+            get_cursuri.cache_clear()
+            return done
         except sqlite3.Error as e:
             c.rollback()
             c.close()
             conn.close()
             print(e)
+            return str(e)
     elif "nume" in modifications.keys():
         try:
             c.execute('''UPDATE Cursuri SET NUME=? WHERE id_curs = ?''', (str(modifications['nume']), id_curs))
@@ -148,14 +165,16 @@ def patch_cursuri(id_curs, modifications):
             conn.commit()
             c.close()
             conn.close()
+            get_cursuri.cache_clear()
+            return done
         except sqlite3.Error as e:
             conn.rollback()
             c.close()
             conn.close()
             print(e)
+            return str(e)
     else:
-        print("something bad just happened while trying to patch too many values")
-    return done
+        return "something bad just happened while trying to patch too many values"
 
 
 def delete_cursuri(resource_id):

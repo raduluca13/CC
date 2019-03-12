@@ -322,15 +322,16 @@ def patch(connection, route, headers, body=''):
             ret_id = db_driver.patch_cursuri(resource_id, body)
             print("res id", resource_id)
             print("ret id", ret_id)
-            if ret_id == 0:  # failed update
-                status["code"] = config.status_codes["Not Found"]
-                status["message"] = "Not Found"
-                payload = ""
+            if isinstance(ret_id, int):
+                if ret_id == 0:  # failed update
+                    status["code"] = config.status_codes["Not Found"]
+                    status["message"] = "Not Found"
+                    payload = ""
 
-            elif ret_id == 1:  # succes update
-                status["code"] = config.status_codes["No Content"]
-                status["message"] = "No Content"
-                payload = ""
+                elif ret_id == 1:  # succes update
+                    status["code"] = config.status_codes["No Content"]
+                    status["message"] = "No Content"
+                    payload = ""
             else:  # bad parameters
                 status["code"] = config.status_codes["Not Acceptable"]
                 status["message"] = "Not Acceptable"
