@@ -23,6 +23,8 @@ def handle_new_client(connection, address):
     method, route, protocol = request_list[0].split()
     headers = request_list[1:]
     headers = helpers.split_headers(headers)  # 2 blank lines at the end
+    # headers = str.join("\r\n", headers)
+    # print(json.loads(headers))
     if protocol == "HTTP/1.1":
         if method == "GET":
             status_line, headers, payload = get(connection, route, headers, body)
@@ -54,6 +56,7 @@ def handle_new_client(connection, address):
 
         encoded = http_response.encode()
         print(db_driver.get_cursuri.cache_info())
+        print(db_driver.get_favicon.cache_info())
         print("http_respo: ", encoded)
         endTime = time.time()
         duration = endTime - startTime
@@ -67,160 +70,169 @@ def handle_new_client(connection, address):
     connection.close()
 
 
-
 def get(connection, route, headers, body=""):
     status = dict()
     payload = ''
-    if helpers.has_query_params(route):  # QUERY PARAM request
-        route, params = helpers.split_route_with_query(route)
-        params = helpers.split_params(params)
 
-        if not params['id']:
-            status["code"] = config.status_codes["Not Found"]
-            status["message"] = "Not Found"
-            payload = ""
-            return status, headers, payload
+    if "Mozilla/5.0" in headers["User-Agent"]:
+        with open("index.html") as idx:
+            payload = idx.read()
+        status["code"] = config.status_codes["OK"]
+        status["message"] = "OK"
+        headers["content-length"] = len(payload)
+        headers = helpers.construct_headers(headers)
+        return status, headers, payload
+    elif "Postman-Token" in headers.keys():
+        if helpers.has_query_params(route):  # QUERY PARAM request
+            route, params = helpers.split_route_with_query(route)
+            params = helpers.split_params(params)
 
-        if route == "favicon.ico":
-            status["code"] = config.status_codes["OK"]
-            status["message"] = "OK"
-            with open('favicon.ico', 'rb') as fav:
-                payload = fav.read()
-        elif route == "studenti":
-            headers["Content-Type"] = "application/json"
-            returned = db_driver.get_studenti()
-            if len(returned) == 0:
+            if not params['id']:
                 status["code"] = config.status_codes["Not Found"]
                 status["message"] = "Not Found"
                 payload = ""
-            else:
+                return status, headers, payload
+
+            if route == "favicon.ico":
                 status["code"] = config.status_codes["OK"]
                 status["message"] = "OK"
-                results = [dict(id=x[0], nume=x[1], nr_matricol=x[2]) for x in returned]
-                print(results)
-                payload = json.dumps(results)
-        elif route == "cursuri":
-            returned = db_driver.get_cursuri(int(params['id']))
-            if len(returned) == 0:
-                status["code"] = config.status_codes["Not Found"]
-                status["message"] = "Not Found"
-                payload = ""
+                payload = db_driver.get_favicon()
+            elif route == "studenti":
+                headers["Content-Type"] = "application/json"
+                returned = db_driver.get_studenti()
+                if len(returned) == 0:
+                    status["code"] = config.status_codes["Not Found"]
+                    status["message"] = "Not Found"
+                    payload = ""
+                else:
+                    status["code"] = config.status_codes["OK"]
+                    status["message"] = "OK"
+                    results = [dict(id=x[0], nume=x[1], nr_matricol=x[2]) for x in returned]
+                    print(results)
+                    payload = json.dumps(results)
+            elif route == "cursuri":
+                headers["Content-Type"] = "application/json"
+                returned = db_driver.get_cursuri(int(params['id']))
+                if len(returned) == 0:
+                    status["code"] = config.status_codes["Not Found"]
+                    status["message"] = "Not Found"
+                    payload = ""
+                else:
+                    status["code"] = config.status_codes["OK"]
+                    status["message"] = "OK"
+                    results = [dict(id_curs=x[0], nume=x[1], credite=x[2]) for x in returned]
+                    payload = json.dumps(results)
+            elif route == "note":
+                returned = db_driver.get_studenti(int(params['id']))
+                if len(returned) == 0:
+                    status["code"] = config.status_codes["Not Found"]
+                    status["message"] = "Not Found"
+                    payload = ""
+                else:
+                    status["code"] = config.status_codes["OK"]
+                    status["message"] = "OK"
+                    results = [dict(id_nota=x[0], nr_matricol=x[1], valoare=x[2], id_curs=x[3]) for x in returned]
+                    payload = json.dumps(results)
             else:
-                status["code"] = config.status_codes["OK"]
-                status["message"] = "OK"
-                results = [dict(id_curs=x[0], nume=x[1], credite=x[2]) for x in returned]
-                payload = json.dumps(results)
-        elif route == "note":
-            returned = db_driver.get_studenti(int(params['id']))
-            if len(returned) == 0:
-                status["code"] = config.status_codes["Not Found"]
-                status["message"] = "Not Found"
-                payload = ""
-            else:
-                status["code"] = config.status_codes["OK"]
-                status["message"] = "OK"
-                results = [dict(id_nota=x[0], nr_matricol=x[1], valoare=x[2], id_curs=x[3]) for x in returned]
-                payload = json.dumps(results)
+                status["code"] = str(config.status_codes["Not Implemented"])
+                status["message"] = "Not Implemented"
+                payload = db_driver.get_501()
+
         else:
-            status["code"] = str(config.status_codes["Not Implemented"])
-            status["message"] = "Not Implemented"
-            with open('501.html') as index:
-                payload = index.read()
-    else:
-        route, resource_id = helpers.split_route_without_query(route)
-        if resource_id == '':  # GET collection - WORKING - DON'T CHANGE
-            if route == "favicon.ico":
-                status["code"] = config.status_codes["OK"]
-                status["message"] = "OK"
-                with open('favicon.ico', 'rb') as fav:
-                    payload = fav.read()
-            elif route == "studenti":
-                headers["Content-Type"] = "application/json"
-                returned = db_driver.get_studenti()
-                if len(returned) == 0:
-                    status["code"] = config.status_codes["Not Found"]
-                    status["message"] = "Not Found"
-                    payload = ""
-                else:
+            route, resource_id = helpers.split_route_without_query(route)
+            if resource_id == '':  # GET collection - WORKING - DON'T CHANGE
+                if route == "favicon.ico":
                     status["code"] = config.status_codes["OK"]
                     status["message"] = "OK"
-                    results = [dict(id=x[0], nume=x[1], nr_matricol=x[2]) for x in returned]
-                    print(results)
-                    payload = json.dumps(results)
-            elif route == "cursuri":
-                print("colection")
-                returned = db_driver.get_cursuri()
-                if len(returned) == 0:
-                    status["code"] = config.status_codes["Not Found"]
-                    status["message"] = "Not Found"
-                    payload = ""
+                    with open('favicon.ico', 'rb') as fav:
+                        payload = fav.read()
+                elif route == "studenti":
+                    headers["Content-Type"] = "application/json"
+                    returned = db_driver.get_studenti()
+                    if len(returned) == 0:
+                        status["code"] = config.status_codes["Not Found"]
+                        status["message"] = "Not Found"
+                        payload = ""
+                    else:
+                        status["code"] = config.status_codes["OK"]
+                        status["message"] = "OK"
+                        results = [dict(id=x[0], nume=x[1], nr_matricol=x[2]) for x in returned]
+                        print(results)
+                        payload = json.dumps(results)
+                elif route == "cursuri":
+                    print("colection")
+                    returned = db_driver.get_cursuri()
+                    if len(returned) == 0:
+                        status["code"] = config.status_codes["Not Found"]
+                        status["message"] = "Not Found"
+                        payload = ""
+                    else:
+                        status["code"] = config.status_codes["OK"]
+                        status["message"] = "OK"
+                        results = [dict(id_curs=x[0], nume=x[1], credite=x[2]) for x in returned]
+                        payload = json.dumps(results)
+                elif route == "note":
+                    returned = db_driver.get_studenti()
+                    if len(returned) == 0:
+                        status["code"] = config.status_codes["Not Found"]
+                        status["message"] = "Not Found"
+                        payload = ""
+                    else:
+                        status["code"] = config.status_codes["OK"]
+                        status["message"] = "OK"
+                        results = [dict(id_nota=x[0], nr_matricol=x[1], valoare=x[2], id_curs=x[3]) for x in returned]
+                        payload = json.dumps(results)
                 else:
+                    status["code"] = str(config.status_codes["Not Implemented"])
+                    status["message"] = "Not Implemented"
+                    with open('501.html') as index:
+                        payload = index.read()
+            else:  # GET by resource_id - WORKING - DON'T CHANGE
+                if route == "favicon.ico":
                     status["code"] = config.status_codes["OK"]
                     status["message"] = "OK"
-                    results = [dict(id_curs=x[0], nume=x[1], credite=x[2]) for x in returned]
-                    payload = json.dumps(results)
-            elif route == "note":
-                returned = db_driver.get_studenti()
-                if len(returned) == 0:
-                    status["code"] = config.status_codes["Not Found"]
-                    status["message"] = "Not Found"
-                    payload = ""
+                    with open('favicon.ico', 'rb') as fav:
+                        payload = fav.read()
+                elif route == "studenti":
+                    headers["Content-Type"] = "application/json"
+                    returned = db_driver.get_studenti(resource_id)
+                    if len(returned) == 0:
+                        status["code"] = config.status_codes["Not Found"]
+                        status["message"] = "Not Found"
+                        payload = ""
+                    else:
+                        status["code"] = config.status_codes["OK"]
+                        status["message"] = "OK"
+                        results = [dict(id=x[0], nume=x[1], nr_matricol=x[2]) for x in returned]
+                        print(results)
+                        payload = json.dumps(results)
+                elif route == "cursuri":
+                    returned = db_driver.get_cursuri(resource_id)
+                    if len(returned) == 0:
+                        status["code"] = config.status_codes["Not Found"]
+                        status["message"] = "Not Found"
+                        payload = ""
+                    else:
+                        status["code"] = config.status_codes["OK"]
+                        status["message"] = "OK"
+                        results = [dict(id_curs=x[0], nume=x[1], credite=x[2]) for x in returned]
+                        payload = json.dumps(results)
+                elif route == "note":
+                    returned = db_driver.get_studenti(resource_id)
+                    if len(returned) == 0:
+                        status["code"] = config.status_codes["Not Found"]
+                        status["message"] = "Not Found"
+                        payload = ""
+                    else:
+                        status["code"] = config.status_codes["OK"]
+                        status["message"] = "OK"
+                        results = [dict(id_nota=x[0], nr_matricol=x[1], valoare=x[2], id_curs=x[3]) for x in returned]
+                        payload = json.dumps(results)
                 else:
-                    status["code"] = config.status_codes["OK"]
-                    status["message"] = "OK"
-                    results = [dict(id_nota=x[0], nr_matricol=x[1], valoare=x[2], id_curs=x[3]) for x in returned]
-                    payload = json.dumps(results)
-            else:
-                status["code"] = str(config.status_codes["Not Implemented"])
-                status["message"] = "Not Implemented"
-                with open('501.html') as index:
-                    payload = index.read()
-        else:  # GET by resource_id - WORKING - DON'T CHANGE
-            if route == "favicon.ico":
-                status["code"] = config.status_codes["OK"]
-                status["message"] = "OK"
-                with open('favicon.ico', 'rb') as fav:
-                    payload = fav.read()
-            elif route == "studenti":
-                headers["Content-Type"] = "application/json"
-                returned = db_driver.get_studenti(resource_id)
-                if len(returned) == 0:
-                    status["code"] = config.status_codes["Not Found"]
-                    status["message"] = "Not Found"
-                    payload = ""
-                else:
-                    status["code"] = config.status_codes["OK"]
-                    status["message"] = "OK"
-                    results = [dict(id=x[0], nume=x[1], nr_matricol=x[2]) for x in returned]
-                    print(results)
-                    payload = json.dumps(results)
-            elif route == "cursuri":
-                returned = db_driver.get_cursuri(resource_id)
-                if len(returned) == 0:
-                    status["code"] = config.status_codes["Not Found"]
-                    status["message"] = "Not Found"
-                    payload = ""
-                else:
-                    status["code"] = config.status_codes["OK"]
-                    status["message"] = "OK"
-                    results = [dict(id_curs=x[0], nume=x[1], credite=x[2]) for x in returned]
-                    payload = json.dumps(results)
-            elif route == "note":
-                returned = db_driver.get_studenti(resource_id)
-                if len(returned) == 0:
-                    status["code"] = config.status_codes["Not Found"]
-                    status["message"] = "Not Found"
-                    payload = ""
-                else:
-                    status["code"] = config.status_codes["OK"]
-                    status["message"] = "OK"
-                    results = [dict(id_nota=x[0], nr_matricol=x[1], valoare=x[2], id_curs=x[3]) for x in returned]
-                    payload = json.dumps(results)
-            else:
-                status["code"] = str(config.status_codes["Not Implemented"])
-                status["message"] = "Not Implemented"
-                with open('501.html') as index:
-                    payload = index.read()
+                    status["code"] = str(config.status_codes["Not Implemented"])
+                    status["message"] = "Not Implemented"
+                    with open('501.html') as index:
+                        payload = index.read()
     # headers["Content-Type"] = ?
     headers["content-length"] = len(payload)
     headers = helpers.construct_headers(headers)
@@ -230,6 +242,32 @@ def get(connection, route, headers, body=""):
 def post(connection, route, headers, body):
     status = dict()
     payload = ""
+    if "Mozilla/5.0" in headers["User-Agent"]:
+        print(route, headers, body)
+        arglist = json.loads(body)
+        route, params = helpers.split_route_without_query(route)
+        insertion_status = db_driver.insert_into_cursuri(arglist)
+        print("STATUS:", insertion_status, type(insertion_status))
+        if isinstance(insertion_status, int):
+            print("SADASDSADAS")
+            # status["code"] = config.status_codes["Created"]
+            # status["message"] = "Created"
+            # headers["Location"] = '/cursuri/{id}'.format(id=insertion_status)
+            # headers["Content-Type"] = "application/json"
+            # # payload = json.loads(str(insertion_status))
+        else:
+            print("not created", insertion_status)
+            status["code"] = config.status_codes["Conflict"]
+            status["message"] = "Conflict"
+            # ???? may cause ERRORS >
+            payload = "insertion_status"
+        # with open("index.html") as idx:
+        #     payload = idx.read()
+        # status["code"] = config.status_codes["OK"]
+        # status["message"] = "OK"
+        headers["content-length"] = len(payload)
+        headers = helpers.construct_headers(headers)
+        return status, headers, payload
 
     if helpers.has_query_params(route):
         status["code"] = config.status_codes["Forbidden"]
@@ -279,6 +317,7 @@ def put(connection, route, headers, body=""):
 
         if route == "cursuri":
             if "id_curs" in body.keys():
+                print(type(resource_id), type(body["id_curs"]))
                 if resource_id is not body["id_curs"]:
                     status["code"] = config.status_codes["Conflict"]
                     status["message"] = "Conflict"
@@ -288,10 +327,11 @@ def put(connection, route, headers, body=""):
                 if put_status == 0:
                     status["code"] = config.status_codes["Not Found"]
                     status["message"] = "Not Found"
+                    payload=""
                 else:
                     status["code"] = config.status_codes["No Content"]
                     status["message"] = "No Content"
-                    # payload = ""
+                    payload = ""
             else:  # bad parameters
                 status["code"] = config.status_codes["Not Acceptable"]
                 status["message"] = "Not Acceptable"
@@ -359,7 +399,7 @@ def delete(connection, route, headers, body=''):
             if resource_id == "":
                 status["code"] = config.status_codes["Method Not Allowed"]
                 status["message"] = "Method Not Allowed"
-                payload = ""
+                payload = "I can't let you do this. Try one by one"
             else:
                 ret_id = db_driver.delete_cursuri(resource_id)
                 print("ret ", ret_id)

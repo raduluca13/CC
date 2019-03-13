@@ -1,0 +1,563 @@
+{
+	"info": {
+		"_postman_id": "08ca2654-d286-4b21-8ff7-980843ab9cda",
+		"name": "week2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET cursuri (colectie)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "45d85741-7ac9-4300-8b85-f23c99328065",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf246618-839b-4770-99b1-8195a80d492c",
+						"exec": [
+							"tests[\"response code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri"
+					]
+				},
+				"description": "GET cursuri (ALL)"
+			},
+			"response": []
+		},
+		{
+			"name": "GET cursuri (id)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "45d85741-7ac9-4300-8b85-f23c99328065",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf246618-839b-4770-99b1-8195a80d492c",
+						"exec": [
+							"tests[\"response code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET cursuri (id) - not found",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "45d85741-7ac9-4300-8b85-f23c99328065",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf246618-839b-4770-99b1-8195a80d492c",
+						"exec": [
+							"tests[\"response code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri",
+						"4"
+					]
+				},
+				"description": "not found"
+			},
+			"response": []
+		},
+		{
+			"name": "GET cursuri (id) -> query_param",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "45d85741-7ac9-4300-8b85-f23c99328065",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf246618-839b-4770-99b1-8195a80d492c",
+						"exec": [
+							"tests[\"response code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST cursuri -> query_params -> 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "866cd2b1-b26e-4c94-8c4e-aea45740af24",
+						"exec": [
+							"var responseJSON;",
+							"",
+							"try { ",
+							"    responseJSON = JSON.parse(responseBody); ",
+							"    tests['response is valid JSON'] = true;",
+							"}",
+							"catch (e) { ",
+							"    responseJSON = {}; ",
+							"    tests['response is valid JSON'] = false;",
+							"}",
+							"",
+							"",
+							"tests['response has post data'] = _.has(responseJSON, 'form');",
+							"tests['response matches the data posted'] = (responseJSON.form && responseJSON.form.strange === 'boom');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "strange",
+							"value": "boom",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri?nume=CCC&credite=8",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri"
+					],
+					"query": [
+						{
+							"key": "nume",
+							"value": "CCC"
+						},
+						{
+							"key": "credite",
+							"value": "8"
+						}
+					]
+				},
+				"description": "POST cursuri (add curs)"
+			},
+			"response": []
+		},
+		{
+			"name": "POST cursuri (one element - body)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "866cd2b1-b26e-4c94-8c4e-aea45740af24",
+						"exec": [
+							"var responseJSON;",
+							"",
+							"try { ",
+							"    responseJSON = JSON.parse(responseBody); ",
+							"    tests['response is valid JSON'] = true;",
+							"}",
+							"catch (e) { ",
+							"    responseJSON = {}; ",
+							"    tests['response is valid JSON'] = false;",
+							"}",
+							"",
+							"",
+							"tests['response has post data'] = _.has(responseJSON, 'form');",
+							"tests['response matches the data posted'] = (responseJSON.form && responseJSON.form.strange === 'boom');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nume",
+							"value": "SSS",
+							"type": "text"
+						},
+						{
+							"key": "credite",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "id_curs",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri"
+					]
+				},
+				"description": "POST cursuri (add curs)"
+			},
+			"response": []
+		},
+		{
+			"name": "POST cursuri (collection) - in browser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "866cd2b1-b26e-4c94-8c4e-aea45740af24",
+						"exec": [
+							"var responseJSON;",
+							"",
+							"try { ",
+							"    responseJSON = JSON.parse(responseBody); ",
+							"    tests['response is valid JSON'] = true;",
+							"}",
+							"catch (e) { ",
+							"    responseJSON = {}; ",
+							"    tests['response is valid JSON'] = false;",
+							"}",
+							"",
+							"",
+							"tests['response has post data'] = _.has(responseJSON, 'form');",
+							"tests['response matches the data posted'] = (responseJSON.form && responseJSON.form.strange === 'boom');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "[{\"id_curs\"",
+							"value": "0,\"nume\":\"Cloud\",\"credite\":5},{\"id_curs\":2,\"nume\":\"Mate\",\"credite\":5}]",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH cursuri (id + body)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nume",
+							"value": "DADA",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri/31?",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri",
+						"31"
+					],
+					"query": [
+						{
+							"key": "credite",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT cursuri (one element - body)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id_curs",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "nume",
+							"value": "SdSDs",
+							"type": "text"
+						},
+						{
+							"key": "credite",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri/20",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE cursuri (All)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE cursuri (id)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8888/cursuri/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"cursuri",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

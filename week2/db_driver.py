@@ -7,6 +7,18 @@ def init():
     c = conn.cursor()
     return conn, c
 
+
+@lru_cache(maxsize=2)
+def get_favicon():
+    payload=""
+    with open('favicon.ico', 'rb') as fav:
+        payload = fav.read()
+    return payload
+
+
+with open('501.html') as index:
+    payload = index.read()
+
 # @cached(cache={}, key=lambda db_handle, query: hashkey(query))
 @lru_cache(maxsize=32)
 def get_cursuri(id_curs=""):
@@ -52,28 +64,45 @@ def get_note(id_nota=""):
 def insert_into_cursuri(values=""):
     """
     :param values:
-    id DB_AUTO
-    nume mandatory
-    credite mandatory
-
+    list -> collection of courses
+    empty -> one course
     :return:
     inserted_id - if all good
     error_name - else
     """
     conn, c = init()
-    try:
-        c.execute('''INSERT INTO Cursuri (nume, credite) VALUES(?,?)''', (str(values['nume']), int(values['credite'])))
-        inserted_id = c.lastrowid
-        conn.commit()
-        c.close()
-        conn.close()
-        get_cursuri.cache_clear()
-        return inserted_id
-    except sqlite3.IntegrityError as e:
-        conn.rollback()  # ?
-        c.close()
-        conn.close()
-        return str(e)
+    print("VALS", values)
+    if isinstance(values, list):
+        cursuri = [('',x["nume"],x["credite"]) for x in values]
+        try:
+            # Larger example that inserts many records at a time
+            c.executemany('INSERT INTO Cursuri VALUES (?,?,?)', cursuri)
+            inserted_id = c.lastrowid
+            conn.commit()
+            c.close()
+            conn.close()
+            get_cursuri.cache_clear()
+            return inserted_id
+        except sqlite3.Error as e:
+            conn.rollback()
+            c.close()
+            conn.close()
+            print(e)
+            return str(e)
+    else:
+        try:
+            c.execute('''INSERT INTO Cursuri (nume, credite) VALUES(?,?)''', (str(values['nume']), int(values['credite'])))
+            inserted_id = c.lastrowid
+            conn.commit()
+            c.close()
+            conn.close()
+            get_cursuri.cache_clear()
+            return inserted_id
+        except sqlite3.IntegrityError as e:
+            conn.rollback()  # ?
+            c.close()
+            conn.close()
+            return str(e)
 
 
 def insert_into_studenti(values=""):

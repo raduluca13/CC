@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week2</title>
+</head>
+<body>
+    <button id="btn">POST Collection</button>
+    
+    <script>
+        let btn = document.getElementById("btn")
+        btn.addEventListener("click", function(){
+            let req = new XMLHttpRequest()
+            let obj1 = {
+                "nume": "ClouddD",
+                "credite": 5
+            }
+            let obj2 = {
+                "nume": "SdSasDAaDD",
+                "credite": 4
+            }
+            let data = []
+            data.push(obj1, obj2)
+            console.log(data)
+            req.open("POST", "/cursuri")
+            req.addEventListener("load", function(ev){
+                console.log(ev)
+            })  
+            req.addEventListener("error", function(ev){
+                console.log(ev)
+            })    
+            req.send(JSON.stringify(data))  
+        })
+    </script>
+</body>
+</html>

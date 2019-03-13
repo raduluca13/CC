@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e640afd2-6c34-4b42-bf9d-38b2cacd5f17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/week1-remove/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/week1-remove/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1-remove/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1-remove/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/week1-remove/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1-remove/server_cloud.py" beforeDir="false" afterPath="$PROJECT_DIR$/week1-remove/server_cloud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_driver.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_driver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logging.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="342">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -30,30 +32,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handlers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="326" column="30" selection-start-line="326" selection-start-column="30" selection-end-line="326" selection-end-column="30" />
+            <state relative-caret-position="171">
+              <caret line="401" column="52" selection-start-line="401" selection-start-column="52" selection-end-line="401" selection-end-column="52" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#3084#5502#0" />
-                <element signature="e#5945#6543#0" />
+                <element signature="e#3401#10951#0" />
+                <element signature="e#12477#14101#0" />
+                <element signature="e#14156#15653#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database.db">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="53" column="31" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+            <state relative-caret-position="285">
+              <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
               <folding>
                 <element signature="e#65#325#0" />
                 <element signature="e#369#599#0" />
@@ -66,17 +64,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_driver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="247">
+              <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <element signature="e#147#461#0" />
-                <element signature="e#501#810#0" />
-                <element signature="e#843#1127#0" />
-                <element signature="e#1170#1724#0" />
-                <element signature="e#1864#2709#0" />
-                <element signature="e#2995#4731#0" />
-                <element signature="e#4235#4677#0" />
               </folding>
             </state>
           </provider>
@@ -135,10 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>else</find>
-      <find>print(&quot;htt</find>
-      <find>json</find>
-      <find>print(</find>
       <find>init_curso</find>
       <find>post(</find>
       <find>join</find>
@@ -163,13 +150,19 @@
       <find>print(&quot;he</find>
       <find>c.rollback</find>
       <find>patch</find>
+      <find>dumps</find>
+      <find>favicon</find>
+      <find>cac</find>
+      <find>get_favi</find>
+      <find>Content-T</find>
+      <find>executeman</find>
     </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/week1-remove" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -180,8 +173,8 @@
         <option value="$PROJECT_DIR$/example.json" />
         <option value="$PROJECT_DIR$/helpers.py" />
         <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/handlers.py" />
         <option value="$PROJECT_DIR$/db_driver.py" />
+        <option value="$PROJECT_DIR$/handlers.py" />
       </list>
     </option>
   </component>
@@ -297,7 +290,7 @@
       <window_info id="Favorites" order="2" sideWeight="0.50222224" side_tool="true" weight="0.24983476" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2917847" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32294616" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -336,9 +329,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database.db">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -370,53 +360,50 @@
     <entry file="file://$PROJECT_DIR$/threads.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_driver.py">
+    <entry file="file://$PROJECT_DIR$/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="285">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <element signature="e#147#461#0" />
-            <element signature="e#501#810#0" />
-            <element signature="e#843#1127#0" />
-            <element signature="e#1170#1724#0" />
-            <element signature="e#1864#2709#0" />
-            <element signature="e#2995#4731#0" />
-            <element signature="e#4235#4677#0" />
+            <element signature="e#65#325#0" />
+            <element signature="e#369#599#0" />
+            <element signature="e#632#934#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handlers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="326" column="30" selection-start-line="326" selection-start-column="30" selection-end-line="326" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <element signature="e#3084#5502#0" />
-            <element signature="e#5945#6543#0" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/database.db">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="342">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/helpers.py">
+    <entry file="file://$PROJECT_DIR$/db_driver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="53" column="31" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
+          <caret line="78" column="57" selection-start-line="78" selection-start-column="57" selection-end-line="78" selection-end-column="57" />
           <folding>
-            <element signature="e#65#325#0" />
-            <element signature="e#369#599#0" />
-            <element signature="e#632#934#0" />
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="401" column="52" selection-start-line="401" selection-start-column="52" selection-end-line="401" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#3401#10951#0" />
+            <element signature="e#12477#14101#0" />
+            <element signature="e#14156#15653#0" />
           </folding>
         </state>
       </provider>
